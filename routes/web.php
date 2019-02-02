@@ -15,8 +15,14 @@
 //     return view('welcome');
 // });
 Route::get('/', 'FilmsController@index');
+Route::get('/films', 'FilmsController@index');
 
-Route::get('/films/{film}', 'FilmsController@show');
+// Route::get('/films/{film}', 'FilmsController@show');
+Route::get('/films/create', 'FilmsController@create');
+
+Route::post('/films', 'FilmsController@store');
+
+Route::get('/categories', 'CategoriesController@index');
 
 Auth::routes();
 
