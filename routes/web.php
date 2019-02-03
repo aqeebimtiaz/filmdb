@@ -20,7 +20,9 @@ Route::get('/films', 'FilmsController@index');
 Route::get('/films/{film}', 'FilmsController@show');
 Route::get('/film/create', 'FilmsController@create');
 
-Route::post('/films', 'FilmsController@store');
+Route::post('/films', 'FilmsController@store'); //create new movie
+
+Route::post('/films/{film}/comments', 'CommentsController@store');
 
 Route::get('/categories', 'CategoriesController@index');
 

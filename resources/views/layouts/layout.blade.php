@@ -91,7 +91,7 @@
         <strong>Film Database</strong>
       </a>
 
-      <a href="{{ url('/categories') }}"> <strong class="text-white"> Movie Categories </strong> </a>
+      <a href="{{ url('/categories') }}"> <strong class="text-white">Categories </strong> </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader"
                     aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
