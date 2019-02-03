@@ -91,7 +91,7 @@
         <strong>Film Database</strong>
       </a>
 
-      <a href="{{ url('/categories') }}"> <strong class="text-white">Categories </strong> </a>
+                <a href="{{ url('/categories') }}"> <strong class="text-white">Categories </strong> </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader"
                     aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -101,8 +101,7 @@
     </header>
 
     <main role="main">
-
-        @yield('home_content')
+        @guest @yield('home_content') @endguest
 
         <div class="album py-5 bg-light">
             <div class="container">
@@ -111,7 +110,12 @@
 
             </div>
         </div>
-
+        <div class="fixed-action-btn float-right" style="bottom: 45px; right: 24px;">
+                <a href="/film/create" class="btn-floating btn-lg red">
+                    <img src="https://img.icons8.com/metro/26/000000/pencil.png">
+                  <i class="fas fa-pencil-alt"></i>
+                </a>
+        </div>
     </main>
 
     <footer class="text-muted">

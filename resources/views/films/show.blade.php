@@ -7,7 +7,7 @@
             <text fill="#eceeef" dy=".3em" x="50%" y="50%">{{ $film->film_name }}</text>
         </svg>
     <div class="card-body">
-        <p class="card-text"> {{ $film->film_description }}
+        <p class="card-text"><p>Created by {{$film->user->name}}</p> {{ $film->film_description }}
             <p>Release Date: {{ $film->release_date }}</p>
             Rating: {{ $film->rating }}
             <span class="float-right"> Ticket: ${{ $film->ticket_price }}</span>

@@ -15,6 +15,7 @@ class CreateFilmsTable extends Migration
     {
         Schema::create('films', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
             $table->string('film_name');
             $table->longText('film_description');
             $table->date('release_date');

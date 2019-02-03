@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Film extends Model
 {
     protected $fillable = [
-        'film_name', 'film_description', 'release_date', 'rating', 'ticket_price','country'
+        'user_id', 'film_name', 'film_description', 'release_date', 'rating', 'ticket_price','country'
     ];
 
     public function comments()
@@ -22,5 +22,10 @@ class Film extends Model
         //     'body' => $body,
         //     'film_id' => $this->id
         // ]);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

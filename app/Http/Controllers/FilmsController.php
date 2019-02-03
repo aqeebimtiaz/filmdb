@@ -8,6 +8,11 @@ use App\Film;
 class FilmsController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     public function index(){
 
         $films = Film::latest()->get();
@@ -35,16 +40,21 @@ class FilmsController extends Controller
             'country'  => 'required'
         ]);
 
-        Film::create(request([
-            'film_name', 'film_description', 'release_date', 'rating', 'ticket_price','country'
-            // 'film_name' = request('film_name'),
-            // 'film_description' = request('film_description'),
-            // 'release_date' = request('release_date'),
-            // 'rating' = request('rating'),
-            // 'ticket_price' = request('ticket_price'),
-            // 'country' = request('country')
-            ])
+        auth()->user()->publish(
+            new Film(request(['film_name', 'film_description', 'release_date', 'rating', 'ticket_price','country']))
         );
+
+        // Film::create([//request([
+        //     // 'user_id', 'film_name', 'film_description', 'release_date', 'rating', 'ticket_price','country'
+        //     'user_id' => auth()->id(),
+        //     'film_name' => request('film_name'),
+        //     'film_description' => request('film_description'),
+        //     'release_date' => request('release_date'),
+        //     'rating' => request('rating'),
+        //     'ticket_price' => request('ticket_price'),
+        //     'country' => request('country')
+        //     //])
+        // ]);
         // dd(request()->all());
         return redirect('/');
     }
