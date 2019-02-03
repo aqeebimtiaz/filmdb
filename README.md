@@ -12,7 +12,7 @@ You’ll start by editing this README file to learn how to edit a file in Bitbuc
 2. The registered users can post comments.
 3. The guests need to Login or Register to gain the full control.
 
-##Future Plans:
+## Future Plans:
 1. Implement photo upload functions for the films.
 2. Research and use other authentications other than Laravel basic auth.
 3. Create filters to sort by Year & Country.
