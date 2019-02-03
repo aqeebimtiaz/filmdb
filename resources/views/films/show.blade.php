@@ -1,13 +1,15 @@
 @extends('layouts.layout')
 @section('content')
 <div class="card mb-4 shadow-sm">
-        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+        focusable="false" role="img" aria-label="Placeholder: Thumbnail">
             <title>Placeholder</title>
             <rect fill="#55595c" width="100%" height="100%"/>
             <text fill="#eceeef" dy=".3em" x="50%" y="50%">{{ $film->film_name }}</text>
         </svg>
     <div class="card-body">
-        <p class="card-text"><p>Created by {{$film->user->name}}</p> {{ $film->film_description }}
+        <p class="card-text">
+            <p>Created by {{$film->user->name}}</p> {{ $film->film_description }}
             <p>Release Date: {{ $film->release_date }}</p>
             Rating: {{ $film->rating }}
             <span class="float-right"> Ticket: ${{ $film->ticket_price }}</span>
@@ -36,6 +38,15 @@
     </ul>
 </div>
 <hr>
+@guest Please Login or Register to post comments
+<li class="nav-item">
+    <a href="{{ route('login') }}">{{ __('Login') }}</a>
+</li>
+@if (Route::has('register'))
+<li class="nav-item">
+    <a href="{{ route('register') }}">{{ __('Register') }}</a>
+</li>
+@endif @else
 <div class="card">
     <div class="card-block">
         <form action="/films/{{$film->id}}/comments" method="post">
@@ -45,9 +56,12 @@
             </div>
             <div class="form-group">
                 <button class="btn btn-lg btn-primary" type="submit">Add a Comment</button>
-             </div>
+            </div>
         </form>
-        @include('layouts.errors')
+    @include('layouts.errors')
     </div>
 </div>
+@endguest
+
+<hr>
 @endsection

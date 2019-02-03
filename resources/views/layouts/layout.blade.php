@@ -52,7 +52,8 @@
                             {{--
                             <li><a href="#" class="text-white">Follow on Twitter</a></li>
                             <li><a href="#" class="text-white">Like on Facebook</a></li>
-                            <li><a href="#" class="text-white">Email me</a></li> --}} @guest
+                            <li><a href="#" class="text-white">Email me</a></li> --}}
+                            @guest
                             <li class="nav-item">
                                 <a class="text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
