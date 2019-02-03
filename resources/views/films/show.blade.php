@@ -1,5 +1,5 @@
 @extends('layouts.layout')
 
 @section('content')
-    A details of a film!
+    <h1>{{ $film->film_name }}</h1>
 @endsection
